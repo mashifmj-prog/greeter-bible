@@ -9,11 +9,11 @@ const GreeterApp = {
     this.loadUserName();
     this.updateGreeting();
     this.updateClock();
-    this.updateDayAndDate();
+    this.updateDate();
 
     setInterval(() => this.updateClock(), 1000);
     setInterval(() => this.updateGreeting(), 60000);
-    setInterval(() => this.updateDayAndDate(), 60000); // refresh day/date every minute
+    setInterval(() => this.updateDate(), 60000); // refresh date every minute
 
     this.addListeners();
   },
@@ -155,16 +155,14 @@ const GreeterApp = {
     document.getElementById("clock").innerText = `${h}:${m}:${s}`;
   },
 
-  // ----- Day of Week & Calendar Date -----
-  updateDayAndDate() {
-    const dayEl = document.getElementById("weather");
+  // ----- Calendar Date including weekday -----
+  updateDate() {
     const dateEl = document.getElementById("forecast");
-
     const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-    dayEl.innerText = `Today is ${now.toLocaleDateString(undefined, { weekday: 'long' })}`;
-    dateEl.innerText = `Date: ${now.toLocaleDateString(undefined, options)}`;
+    // Include weekday in the full date
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    dateEl.innerText = now.toLocaleDateString(undefined, options);
   }
 };
 
