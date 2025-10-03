@@ -3,17 +3,17 @@
 const GreeterApp = {
   userName: "",
   currentBackground: "",
-  API_KEY: "YOUR_API_KEY_HERE", // replace safely in production
 
   // ----- Initialization -----
   init() {
     this.loadUserName();
     this.updateGreeting();
     this.updateClock();
-    this.fetchWeather();
+    this.updateDayAndDate();
 
     setInterval(() => this.updateClock(), 1000);
     setInterval(() => this.updateGreeting(), 60000);
+    setInterval(() => this.updateDayAndDate(), 60000); // refresh day/date every minute
 
     this.addListeners();
   },
@@ -115,4 +115,58 @@ const GreeterApp = {
     } else if (hour >= 12 && hour < 15) {
       greeting = "Good Day";
       icon = "☀️";
-      verseArray = this.versesD
+      verseArray = this.versesDay;
+      newBackground = "day";
+    } else if (hour >= 15 && hour < 18) {
+      greeting = "Good Afternoon";
+      icon = "🌤️";
+      verseArray = this.versesAfternoon;
+      newBackground = "afternoon";
+    } else if (hour >= 18 && hour < 22) {
+      greeting = "Good Evening";
+      icon = "🌇";
+      verseArray = this.versesEvening;
+      newBackground = "evening";
+    } else {
+      greeting = "Good Night";
+      icon = "🌙";
+      verseArray = this.versesNight;
+      newBackground = "night";
+    }
+
+    if (this.currentBackground !== newBackground) {
+      document.body.className = newBackground;
+      this.currentBackground = newBackground;
+    }
+
+    const displayGreeting = this.userName ? `${greeting}, ${this.userName}!` : greeting;
+
+    document.getElementById("icon").innerText = icon;
+    document.getElementById("text").innerText = displayGreeting;
+    document.getElementById("verse").innerText = `${this.getRandomVerse(verseArray)}\n\nDaily Quote: ${this.getDailyQuote()}`;
+  },
+
+  // ----- Clock -----
+  updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    const s = String(now.getSeconds()).padStart(2,'0');
+    document.getElementById("clock").innerText = `${h}:${m}:${s}`;
+  },
+
+  // ----- Day of Week & Calendar Date -----
+  updateDayAndDate() {
+    const dayEl = document.getElementById("weather");
+    const dateEl = document.getElementById("forecast");
+
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+    dayEl.innerText = `Today is ${now.toLocaleDateString(undefined, { weekday: 'long' })}`;
+    dateEl.innerText = `Date: ${now.toLocaleDateString(undefined, options)}`;
+  }
+};
+
+// -------------------- Initialize App --------------------
+GreeterApp.init();
