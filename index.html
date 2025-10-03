@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greeter Bible</title>
+  <title>Greeter Bible App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <!-- Greeting -->
     <h1 id="greeting">
       <span id="icon"></span>
       <span id="text"></span>
@@ -18,22 +17,27 @@
     <input type="text" id="nameInput" placeholder="Enter your name" />
     <button id="resetButton">Reset Name</button>
 
-    <!-- Verse -->
+    <!-- Bible verse + daily quote -->
     <p id="verse"></p>
-
-    <!-- Daily Quote -->
-    <p id="quote"></p>
 
     <!-- Clock -->
     <p id="clock"></p>
 
     <!-- Weather -->
     <div id="weather">
-      <p id="weatherNow"></p>
-      <p id="weatherForecast"></p>
+      <p id="location"></p>
+      <p id="temperature"></p>
+      <p id="forecast"></p>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+<!-- 
+What changed:
+1. Added a container div for weather display (location, temperature, forecast).
+2. Structured HTML for name input, greeting, Bible verses, clock, and weather.
+3. Ready for JavaScript to populate dynamic content.
+-->
