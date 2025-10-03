@@ -17,27 +17,21 @@
     <input type="text" id="nameInput" placeholder="Enter your name" />
     <button id="resetButton">Reset Name</button>
 
-    <!-- Bible verse + daily quote -->
+    <!-- Verse + Daily Quote -->
     <p id="verse"></p>
 
     <!-- Clock -->
     <p id="clock"></p>
 
     <!-- Weather -->
-    <div id="weather">
-      <p id="location"></p>
-      <p id="temperature"></p>
-      <p id="forecast"></p>
-    </div>
+    <p id="weather">Loading weather...</p>
   </div>
+
+  <script>
+    // -------------------- Placeholder API Key --------------------
+    const OPENWEATHERMAP_API_KEY = "6eb470c882b961c9d1fd4de794611c18"; // Replace with your restricted key
+  </script>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-<!-- 
-What changed:
-1. Added a container div for weather display (location, temperature, forecast).
-2. Structured HTML for name input, greeting, Bible verses, clock, and weather.
-3. Ready for JavaScript to populate dynamic content.
--->
