@@ -1,3 +1,4 @@
+/* ----------------- Global Styles ----------------- */
 body {
   margin: 0;
   padding: 0;
@@ -17,6 +18,7 @@ body {
   margin: auto;
 }
 
+/* ----------------- Greeting ----------------- */
 h1 {
   font-size: 3rem;
   color: white;
@@ -34,11 +36,16 @@ h1 {
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
-#icon { font-size: 3.2rem; }
+#icon {
+  font-size: 3.2rem;
+}
 
+/* ----------------- Name Input ----------------- */
 #nameInput {
   margin-top: 12px;
   padding: 8px 12px;
@@ -51,7 +58,9 @@ h1 {
   transition: transform 0.2s ease;
 }
 
-#nameInput:focus { transform: scale(1.05); }
+#nameInput:focus {
+  transform: scale(1.05);
+}
 
 #resetButton {
   margin-top: 10px;
@@ -70,6 +79,7 @@ h1 {
   background-color: rgba(255, 255, 255, 1);
 }
 
+/* ----------------- Bible Verse ----------------- */
 #verse {
   font-size: 1.2rem;
   color: white;
@@ -83,6 +93,7 @@ h1 {
   white-space: pre-line;
 }
 
+/* ----------------- Clock ----------------- */
 #clock {
   font-size: 1.5rem;
   color: white;
@@ -90,28 +101,45 @@ h1 {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
+/* ----------------- Weather ----------------- */
 #weather {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: white;
-  margin-top: 15px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  margin-top: 12px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  line-height: 1.4;
 }
 
-.morning { background: linear-gradient(to bottom right, #fceabb, #f8b500); }
-.day { background: linear-gradient(to bottom right, #4facfe, #00f2fe); }
-.afternoon { background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee); }
-.evening { background: linear-gradient(to bottom right, #fda085, #f6d365); }
-.night { background: linear-gradient(to bottom right, #2c3e50, #4ca1af); }
+/* ----------------- Background Gradients ----------------- */
+.morning {
+  background: linear-gradient(to bottom right, #fceabb, #f8b500);
+}
 
+.day {
+  background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+}
+
+.afternoon {
+  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+}
+
+.evening {
+  background: linear-gradient(to bottom right, #fda085, #f6d365);
+}
+
+.night {
+  background: linear-gradient(to bottom right, #2c3e50, #4ca1af);
+}
+
+/* ----------------- Responsive ----------------- */
 @media (max-width: 500px) {
-  h1 { font-size: 2rem; }
-  #icon { font-size: 2.2rem; }
-  #verse { font-size: 1rem; }
+  h1 {
+    font-size: 2rem;
+  }
+  #icon {
+    font-size: 2.2rem;
+  }
+  #verse, #weather {
+    font-size: 1rem;
+  }
 }
-
-/* 
-What changed:
-1. Added #weather styling for location, temperature, and forecast.
-2. Ensured responsiveness for mobile view.
-3. No layout break when weather info is added.
-*/
