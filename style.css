@@ -1,129 +1,131 @@
-/* ----------------- Global Styles ----------------- */ 
-body { 
-  margin: 0; 
-  padding: 0; 
-  height: 100vh; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  font-family: Arial, sans-serif; 
-  transition: background 2s ease; 
-} 
-.container { 
-  text-align: center; 
-  padding: 20px; 
-  max-width: 500px; 
-  width: 90%; 
-  margin: auto; 
-} 
-
-/* ----------------- Greeting ----------------- */ 
-h1 { 
-  font-size: 3rem; 
-  color: white; 
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  gap: 12px; 
-  flex-wrap: wrap; 
-} 
-#icon, #text { 
-  opacity: 0; 
-  animation: fadeIn 1s forwards; 
-} 
-@keyframes fadeIn { 
-  to { 
-    opacity: 1; 
-  } 
-} 
-#icon { 
-  font-size: 3.2rem; 
-} 
-
-/* ----------------- Name Input ----------------- */ 
-#nameInput { 
-  margin-top: 12px; 
-  padding: 8px 12px; 
-  font-size: 1rem; 
-  border-radius: 8px; 
-  border: none; 
-  outline: none; 
-  text-align: center; 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3); 
-  transition: transform 0.2s ease; 
-} 
-#nameInput:focus { 
-  transform: scale(1.05); 
-} 
-#resetButton { 
-  margin-top: 10px; 
-  padding: 8px 16px; 
-  font-size: 1rem; 
-  border-radius: 8px; 
-  border: none; 
-  cursor: pointer; 
-  background-color: rgba(255, 255, 255, 0.8); 
-  color: #333; 
-  transition: transform 0.2s ease, background-color 0.2s ease; 
-} 
-#resetButton:hover { 
-  transform: scale(1.05); 
-  background-color: rgba(255, 255, 255, 1); 
-} 
-
-/* ----------------- Bible Verse ----------------- */ 
-#verse { 
-  font-size: 1.2rem; 
-  color: white; 
-  margin-top: 12px; 
-  font-style: italic; 
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
-  line-height: 1.5; 
-  max-width: 90%; 
-  margin-left: auto; 
-  margin-right: auto; 
-  white-space: pre-line; 
-} 
-
-/* ----------------- Clock ----------------- */ 
-#clock { 
-  font-size: 1.5rem; 
-  color: white; 
-  margin-top: 10px; 
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
-} 
-
-/* ----------------- Calendar Date ----------------- */ 
-#forecast { 
-  font-size: 1.2rem; 
-  color: white; 
-  margin-top: 12px; 
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
-  line-height: 1.4; 
-  animation: fadeIn 1.5s forwards; 
+/* ----------------- Global Styles ----------------- */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  transition: background 2s ease;
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
 }
 
-/* ----------------- Background Gradients ----------------- */ 
-.morning { 
-  background: linear-gradient(to bottom right, #fceabb, #f8b500); 
-} 
-.day { 
-  background: linear-gradient(to bottom right, #4facfe, #00f2fe); 
-} 
-.afternoon { 
-  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee); 
-} 
-.evening { 
-  background: linear-gradient(to bottom right, #fda085, #f6d365); 
-} 
-.night { 
-  background: linear-gradient(to bottom right, #2c3e50, #4ca1af); 
-} 
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  margin: auto;
+}
 
-/* ----------------- Responsive ----------------- */ 
-@media (max-width: 500px) { 
-  h1 { font-size: 2rem; } 
-  #icon { font-size: 2.2rem; } 
-  #verse, #forecast, #clock { font-size: 1rem; } 
+/* ----------------- Greeting ----------------- */
+h1 {
+  font-size: 3rem;
+  color: black;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#icon, #text {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+#icon {
+  font-size: 3.2rem;
+}
+
+/* ----------------- Name Input ----------------- */
+#nameInput {
+  margin-top: 12px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+#resetButton {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+#resetButton:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* ----------------- Verse ----------------- */
+#verse {
+  font-size: 1.2rem;
+  color: black;
+  margin-top: 12px;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+  line-height: 1.5;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: pre-line;
+}
+
+/* ----------------- Clock & Date ----------------- */
+#clock, #date {
+  font-size: 1.5rem;
+  color: black;
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+/* ----------------- Background Gradients ----------------- */
+.morning {
+  background: linear-gradient(270deg, #fff9c4, #ffe082, #fff59d);
+}
+.day {
+  background: linear-gradient(270deg, #bbdefb, #90caf9, #64b5f6);
+}
+.afternoon {
+  background: linear-gradient(270deg, #ffe0b2, #ffcc80, #ffb74d);
+}
+.evening {
+  background: linear-gradient(270deg, #d1c4e9, #b39ddb, #9575cd);
+}
+.night {
+  background: linear-gradient(270deg, #cfd8dc, #90a4ae, #78909c);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+  #icon {
+    font-size: 2.2rem;
+  }
+  #verse, #clock, #date {
+    font-size: 1rem;
+  }
 }
