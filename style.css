@@ -94,8 +94,8 @@ h1 {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
 } 
 
-/* ----------------- Day & Date ----------------- */ 
-#date-container p { 
+/* ----------------- Calendar Date ----------------- */ 
+#forecast { 
   font-size: 1.2rem; 
   color: white; 
   margin-top: 12px; 
@@ -125,5 +125,5 @@ h1 {
 @media (max-width: 500px) { 
   h1 { font-size: 2rem; } 
   #icon { font-size: 2.2rem; } 
-  #verse, #date-container p, #clock { font-size: 1rem; } 
+  #verse, #forecast, #clock { font-size: 1rem; } 
 }
