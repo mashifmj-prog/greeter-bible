@@ -1,76 +1,137 @@
-:root{
-  --txt: #fff;
-  --muted: rgba(255,255,255,0.9);
-  --container-pad: 20px;
-}
-
-* { box-sizing: border-box; }
-html,body { height: 100%; }
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  transition: background 1.2s ease;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  transition: background 2s ease;
 }
 
 .container {
-  width: 95%;
-  max-width: 760px;
-  background: rgba(0,0,0,0.15);
-  padding: var(--container-pad);
-  border-radius: 12px;
   text-align: center;
-  color: var(--txt);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  margin: auto;
 }
 
-h1 { margin: 0 0 8px 0; display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap; }
-#icon { font-size: 2.6rem; opacity: 0; animation: fadeIn 0.9s forwards; }
-#text { font-size: 1.8rem; opacity: 0; animation: fadeIn 0.9s 0.1s forwards; }
+h1 {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
-.controls { margin-top: 12px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+#icon, #text {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+#icon {
+  font-size: 3.2rem;
+}
+
 #nameInput {
-  padding: 10px 12px;
+  margin-top: 12px;
+  padding: 8px 12px;
+  font-size: 1rem;
   border-radius: 8px;
   border: none;
-  min-width: 160px;
+  outline: none;
   text-align: center;
-  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
 }
+
+#nameInput:focus {
+  transform: scale(1.05);
+}
+
 #resetButton {
-  padding: 10px 14px;
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 1rem;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.verse { margin-top: 16px; font-style: italic; line-height: 1.45; white-space: pre-line; }
-
-.weather { margin-top: 14px; display:flex; flex-direction:column; gap:6px; align-items:center; justify-content:center; }
-#weather-current { font-weight:700; }
-#weather-forecast { font-size:0.95rem; opacity:0.95; }
-
-.clock { margin-top: 12px; font-weight:600; }
-
-.error { margin-top: 12px; color: #ffdddd; background: rgba(255,0,0,0.12); padding:8px 12px; border-radius:8px; display:none; }
-
-/* Background classes for time-of-day */
-.morning { background: linear-gradient(135deg,#fff4cc,#ffd07f 60%); color:#222; }
-.day { background: linear-gradient(135deg,#d4f1ff,#7dd3fc 60%); color:#062341; }
-.afternoon { background: linear-gradient(135deg,#fcd8ff,#c0dbff 60%); color:#162233; }
-.evening { background: linear-gradient(135deg,#ffd1b3,#ff9aa2 60%); color:#22110e; }
-.night { background: linear-gradient(135deg,#0f1724,#12343b 60%); color:#e6f7ff; }
-
-/* small screens */
-@media (max-width:520px) {
-  #text { font-size: 1.3rem; }
-  #icon { font-size: 2rem; }
-  .container { padding: 14px; }
+#resetButton:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 1);
 }
 
-@keyframes fadeIn { to { opacity: 1; } }
+#verse, #quote {
+  font-size: 1.2rem;
+  color: white;
+  margin-top: 12px;
+  font-style: italic;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  line-height: 1.5;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: pre-line;
+}
+
+#clock {
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+#weather {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  line-height: 1.4;
+}
+
+.morning {
+  background: linear-gradient(to bottom right, #fceabb, #f8b500);
+}
+
+.day {
+  background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+}
+
+.afternoon {
+  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+}
+
+.evening {
+  background: linear-gradient(to bottom right, #fda085, #f6d365);
+}
+
+.night {
+  background: linear-gradient(to bottom right, #2c3e50, #4ca1af);
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+  #icon {
+    font-size: 2.2rem;
+  }
+  #verse, #quote {
+    font-size: 1rem;
+  }
+}
