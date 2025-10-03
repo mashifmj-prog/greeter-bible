@@ -8,6 +8,7 @@
 </head>
 <body>
   <div class="container">
+    <!-- Greeting -->
     <h1 id="greeting">
       <span id="icon"></span>
       <span id="text"></span>
@@ -23,15 +24,14 @@
     <!-- Clock -->
     <p id="clock"></p>
 
-    <!-- Weather -->
-    <p id="weather">Loading weather...</p>
+    <!-- Weather info -->
+    <div id="weather-container">
+      <p id="weather">Loading weather...</p>
+      <p id="forecast"></p>
+    </div>
   </div>
 
-  <script>
-    // -------------------- Placeholder API Key --------------------
-    const OPENWEATHERMAP_API_KEY = "6eb470c882b961c9d1fd4de794611c18"; // Replace with your restricted key
-  </script>
-
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
