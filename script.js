@@ -1,7 +1,7 @@
 // -------------------- Greeter Bible App --------------------
 
 // Replace with your OpenWeatherMap API Key
-const API_KEY = "YOUR_API_KEY_HERE";
+const API_KEY = "6eb470c882b961c9d1fd4de794611c18";
 
 // -------------------- User Name --------------------
 let userName = "";
@@ -87,3 +87,4 @@ function updateGreeting() {
   let greeting, icon, verseArray, newBackground;
 
   if(hour >=5 &&
+
