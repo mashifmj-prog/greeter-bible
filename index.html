@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Greeter — Bible</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 id="greeting">
+      <span id="icon" aria-hidden="true"></span>
+      <span id="text"></span>
+    </h1>
+
+    <div class="controls">
+      <input type="text" id="nameInput" placeholder="Enter your name" />
+      <button id="resetButton">Reset Name</button>
+    </div>
+
+    <div id="info">
+      <p id="verse" class="verse" aria-live="polite"></p>
+
+      <div id="weather" class="weather">
+        <div id="weather-current">Loading weather…</div>
+        <div id="weather-forecast"></div>
+      </div>
+
+      <p id="clock" class="clock" aria-live="polite"></p>
+    </div>
+
+    <div id="error" class="error" role="status" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
