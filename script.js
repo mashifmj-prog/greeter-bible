@@ -132,7 +132,7 @@ document.getElementById("resetButton").addEventListener("click", () => {
 // -------------------- Weather Integration --------------------
 
 // Replace '6eb470c882b961c9d1fd4de794611c18' with your OpenWeatherMap API key
-const API_KEY = "YOUR_API_KEY_HERE";
+const API_KEY = "6eb470c882b961c9d1fd4de794611c18";
 
 // Fetch weather for current location
 function fetchWeather() {
@@ -178,3 +178,4 @@ fetchWeather();
 
 setInterval(updateClock, 1000);
 setInterval(updateGreeting, 60000);
+
