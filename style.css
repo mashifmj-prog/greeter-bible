@@ -1,145 +1,129 @@
-/* ----------------- Global Styles ----------------- */
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  transition: background 2s ease;
+/* ----------------- Global Styles ----------------- */ 
+body { 
+  margin: 0; 
+  padding: 0; 
+  height: 100vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  font-family: Arial, sans-serif; 
+  transition: background 2s ease; 
+} 
+.container { 
+  text-align: center; 
+  padding: 20px; 
+  max-width: 500px; 
+  width: 90%; 
+  margin: auto; 
+} 
+
+/* ----------------- Greeting ----------------- */ 
+h1 { 
+  font-size: 3rem; 
+  color: white; 
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 12px; 
+  flex-wrap: wrap; 
+} 
+#icon, #text { 
+  opacity: 0; 
+  animation: fadeIn 1s forwards; 
+} 
+@keyframes fadeIn { 
+  to { 
+    opacity: 1; 
+  } 
+} 
+#icon { 
+  font-size: 3.2rem; 
+} 
+
+/* ----------------- Name Input ----------------- */ 
+#nameInput { 
+  margin-top: 12px; 
+  padding: 8px 12px; 
+  font-size: 1rem; 
+  border-radius: 8px; 
+  border: none; 
+  outline: none; 
+  text-align: center; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3); 
+  transition: transform 0.2s ease; 
+} 
+#nameInput:focus { 
+  transform: scale(1.05); 
+} 
+#resetButton { 
+  margin-top: 10px; 
+  padding: 8px 16px; 
+  font-size: 1rem; 
+  border-radius: 8px; 
+  border: none; 
+  cursor: pointer; 
+  background-color: rgba(255, 255, 255, 0.8); 
+  color: #333; 
+  transition: transform 0.2s ease, background-color 0.2s ease; 
+} 
+#resetButton:hover { 
+  transform: scale(1.05); 
+  background-color: rgba(255, 255, 255, 1); 
+} 
+
+/* ----------------- Bible Verse ----------------- */ 
+#verse { 
+  font-size: 1.2rem; 
+  color: white; 
+  margin-top: 12px; 
+  font-style: italic; 
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
+  line-height: 1.5; 
+  max-width: 90%; 
+  margin-left: auto; 
+  margin-right: auto; 
+  white-space: pre-line; 
+} 
+
+/* ----------------- Clock ----------------- */ 
+#clock { 
+  font-size: 1.5rem; 
+  color: white; 
+  margin-top: 10px; 
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
+} 
+
+/* ----------------- Day & Date ----------------- */ 
+#date-container p { 
+  font-size: 1.2rem; 
+  color: white; 
+  margin-top: 12px; 
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
+  line-height: 1.4; 
+  animation: fadeIn 1.5s forwards; 
 }
 
-.container {
-  text-align: center;
-  padding: 20px;
-  max-width: 500px;
-  width: 90%;
-  margin: auto;
-}
+/* ----------------- Background Gradients ----------------- */ 
+.morning { 
+  background: linear-gradient(to bottom right, #fceabb, #f8b500); 
+} 
+.day { 
+  background: linear-gradient(to bottom right, #4facfe, #00f2fe); 
+} 
+.afternoon { 
+  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee); 
+} 
+.evening { 
+  background: linear-gradient(to bottom right, #fda085, #f6d365); 
+} 
+.night { 
+  background: linear-gradient(to bottom right, #2c3e50, #4ca1af); 
+} 
 
-/* ----------------- Greeting ----------------- */
-h1 {
-  font-size: 3rem;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-#icon, #text {
-  opacity: 0;
-  animation: fadeIn 1s forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-#icon {
-  font-size: 3.2rem;
-}
-
-/* ----------------- Name Input ----------------- */
-#nameInput {
-  margin-top: 12px;
-  padding: 8px 12px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease;
-}
-
-#nameInput:focus {
-  transform: scale(1.05);
-}
-
-#resetButton {
-  margin-top: 10px;
-  padding: 8px 16px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #333;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-#resetButton:hover {
-  transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 1);
-}
-
-/* ----------------- Bible Verse ----------------- */
-#verse {
-  font-size: 1.2rem;
-  color: white;
-  margin-top: 12px;
-  font-style: italic;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-  line-height: 1.5;
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  white-space: pre-line;
-}
-
-/* ----------------- Clock ----------------- */
-#clock {
-  font-size: 1.5rem;
-  color: white;
-  margin-top: 10px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-}
-
-/* ----------------- Weather ----------------- */
-#weather {
-  font-size: 1.2rem;
-  color: white;
-  margin-top: 12px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-  line-height: 1.4;
-}
-
-/* ----------------- Background Gradients ----------------- */
-.morning {
-  background: linear-gradient(to bottom right, #fceabb, #f8b500);
-}
-
-.day {
-  background: linear-gradient(to bottom right, #4facfe, #00f2fe);
-}
-
-.afternoon {
-  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
-}
-
-.evening {
-  background: linear-gradient(to bottom right, #fda085, #f6d365);
-}
-
-.night {
-  background: linear-gradient(to bottom right, #2c3e50, #4ca1af);
-}
-
-/* ----------------- Responsive ----------------- */
-@media (max-width: 500px) {
-  h1 {
-    font-size: 2rem;
-  }
-  #icon {
-    font-size: 2.2rem;
-  }
-  #verse, #weather {
-    font-size: 1rem;
-  }
+/* ----------------- Responsive ----------------- */ 
+@media (max-width: 500px) { 
+  h1 { font-size: 2rem; } 
+  #icon { font-size: 2.2rem; } 
+  #verse, #date-container p, #clock { font-size: 1rem; } 
 }
