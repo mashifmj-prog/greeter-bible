@@ -807,7 +807,7 @@ function closeShareModal() {
 function copyVerseToClipboard() {
   try {
     const verseText = currentVerse;
-    const textToCopy = `${verseText}\n\nShared via Greeter Bible App • https://mashifmj-prog.github.io/greeter-bible-dev3-01/`;
+    const textToCopy = `${verseText}\n\nShared via Greeter Bible App • https://mashifmj-prog.github.io/greeter-bible/`;
     
     navigator.clipboard.writeText(textToCopy).then(() => {
       showSuccessMessage("Verse copied to clipboard! 📋");
@@ -830,7 +830,7 @@ function shareToWhatsAppEnhanced() {
     }
 
     const verseText = currentVerse;
-    const appUrl = "https://mashifmj-prog.github.io/greeter-bible-dev3-01/";
+    const appUrl = "https://mashifmj-prog.github.io/greeter-bible/";
     const shareText = `✨ Bible Inspiration ✨\n\n${verseText}\n\n- Shared via Greeter Bible App\n${appUrl}`;
     
     const encodedText = encodeURIComponent(shareText);
@@ -879,7 +879,7 @@ function shareToWhatsAppEnhanced() {
 // Share app link for publicity
 function shareAppLink() {
   try {
-    const appUrl = "https://mashifmj-prog.github.io/greeter-bible-dev3-01/";
+    const appUrl = "https://mashifmj-prog.github.io/greeter-bible/";
     const shareText = `Check out this beautiful Bible app with daily verses, prayer journal, and more! ${appUrl}`;
     
     // Try native sharing first
@@ -1029,7 +1029,7 @@ function generateVerseImage(theme) {
     const includeAttribution = document.getElementById("includeAttribution").checked;
     if (includeAttribution) {
       ctx.font = "12px 'Inter', sans-serif";
-      ctx.fillText("mashifmj-prog.github.io/greeter-bible-dev3-01", canvas.width / 2, canvas.height - 20);
+      ctx.fillText("mashifmj-prog.github.io/greeter-bible/", canvas.width / 2, canvas.height - 20);
     }
     
     return canvas.toDataURL("image/png");
@@ -1371,3 +1371,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error("Error during initialization:", e);
   }
 });
+
