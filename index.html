@@ -3,47 +3,266 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greeter Bible App</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Greeter Bible App - Daily Inspiration</title>
+  <link rel="stylesheet" href="style.css?v=1.4">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="app-background"></div>
+  
   <div class="container">
-    <!-- Greeting -->
-    <h1 id="greeting">
-      <span id="icon"></span>
-      <span id="text"></span>
-    </h1>
+    <!-- Header Section -->
+    <header class="app-header">
+      <h1 id="greeting">
+        <span id="icon" class="greeting-icon"></span>
+        <span id="text" class="greeting-text"></span>
+      </h1>
+    </header>
 
-    <!-- Name input -->
-    <input type="text" id="nameInput" placeholder="Enter your name" />
-    <button id="resetButton">Reset Name</button>
+    <!-- User Section -->
+    <section class="user-section">
+      <div class="input-group">
+        <input type="text" id="nameInput" placeholder="Enter your name for personal greetings" />
+        <button id="resetButton" class="reset-btn">Reset</button>
+      </div>
+    </section>
 
-    <!-- Verse + Daily Quote -->
-    <p id="verse"></p>
-    <button id="shareButton">Share</button>
+    <!-- Main Controls -->
+    <section class="controls-section">
+      <div class="controls-container">
+        <button id="shareButton" class="control-btn share-btn">
+          <span class="btn-icon">📤</span>
+          <span class="btn-text">Share</span>
+        </button>
+        
+        <button id="favoriteButton" class="control-btn favorite-btn">
+          <span class="btn-icon">❤️</span>
+        </button>
+        
+        <button id="nextVerseButton" class="control-btn next-btn">
+          <span class="btn-icon">🔁</span>
+        </button>
+        
+        <button id="searchButton" class="control-btn search-btn">
+          <span class="btn-icon">🔍</span>
+        </button>
+      </div>
 
-    <!-- Clock -->
-    <p id="clock"></p>
+      <!-- Category Filter -->
+      <div class="category-filter">
+        <select id="verseCategory" class="category-select">
+          <option value="all">All Categories</option>
+          <option value="hope">Hope & Encouragement</option>
+          <option value="peace">Peace & Comfort</option>
+          <option value="strength">Strength & Courage</option>
+          <option value="anxiety">Anxiety & Worry</option>
+          <option value="joy">Joy & Praise</option>
+          <option value="love">Love & Compassion</option>
+          <option value="faith">Faith & Trust</option>
+          <option value="guidance">Guidance & Wisdom</option>
+        </select>
+      </div>
+    </section>
 
-    <!-- Date -->
-    <p id="date"></p>
+    <!-- Verse Display -->
+    <section class="verse-section">
+      <div id="verse" class="verse-container">
+        <div class="verse-loading">Loading inspiration...</div>
+      </div>
+    </section>
+
+    <!-- Time Display -->
+    <section class="time-section">
+      <div id="clock" class="clock-display"></div>
+    </section>
+
+    <!-- Prayer & Journal Section -->
+    <section class="journal-section">
+      <div class="section-header">
+        <h2>📖 Spiritual Journal</h2>
+      </div>
+      
+      <div class="journal-tabs">
+        <button class="journal-tab active" data-tab="prayer">
+          <span class="tab-icon">🙏</span>
+          <span class="tab-text">Prayer Journal</span>
+        </button>
+        <button class="journal-tab" data-tab="gratitude">
+          <span class="tab-icon">😊</span>
+          <span class="tab-text">Gratitude Log</span>
+        </button>
+        <button class="journal-tab" data-tab="requests">
+          <span class="tab-icon">📝</span>
+          <span class="tab-text">Prayer Requests</span>
+        </button>
+      </div>
+
+      <!-- Prayer Journal -->
+      <div id="prayer-tab" class="journal-tab-content active">
+        <div class="journal-input-container">
+          <textarea id="prayerEntry" placeholder="Write your prayers here... Today's inspiration: 'Be anxious for nothing, but in everything by prayer and supplication, with thanksgiving, let your requests be made known to God.' - Philippians 4:6"></textarea>
+          <button id="savePrayer" class="save-btn">
+            <span class="btn-icon">💾</span>
+            Save Prayer
+          </button>
+        </div>
+        <div id="prayerHistory" class="journal-history"></div>
+      </div>
+
+      <!-- Gratitude Log -->
+      <div id="gratitude-tab" class="journal-tab-content">
+        <div class="journal-input-container">
+          <textarea id="gratitudeEntry" placeholder="What are you thankful for today? Count your blessings and write them here..."></textarea>
+          <button id="saveGratitude" class="save-btn">
+            <span class="btn-icon">💾</span>
+            Save Gratitude
+          </button>
+        </div>
+        <div id="gratitudeHistory" class="journal-history"></div>
+      </div>
+
+      <!-- Prayer Requests -->
+      <div id="requests-tab" class="journal-tab-content">
+        <div class="journal-input-container">
+          <textarea id="prayerRequest" placeholder="Enter your prayer requests... Share what's on your heart."></textarea>
+          <button id="addRequest" class="save-btn">
+            <span class="btn-icon">➕</span>
+            Add Request
+          </button>
+        </div>
+        <div id="requestsList" class="requests-list"></div>
+      </div>
+    </section>
+
+    <!-- Favorites Section -->
+    <section class="favorites-section">
+      <div class="section-header">
+        <h2>❤️ Favorite Verses</h2>
+        <button id="clearFavorites" class="clear-favorites-btn">Clear All</button>
+      </div>
+      <div id="favoritesList" class="favorites-list"></div>
+    </section>
   </div>
 
-  <!-- Share Modal -->
+  <!-- Sharing Modal -->
   <div id="shareModal" class="modal">
     <div class="modal-content">
-      <h3>Share Verse and Quote</h3>
-      <button id="shareDevice">Share (Device)</button>
-      <button id="shareWhatsApp">WhatsApp</button>
-      <button id="shareTwitter">Twitter</button>
-      <button id="shareFacebook">Facebook</button>
-      <button id="shareTikTok">TikTok</button>
-      <button id="copyVerse">Copy Verse</button>
-      <button id="closeModal">Close</button>
+      <div class="modal-header">
+        <h2>Share Inspiration</h2>
+        <button class="close-btn">&times;</button>
+      </div>
+      
+      <div class="share-options">
+        <button class="share-option-btn" id="shareImageBtn">
+          <span class="icon">🎨</span>
+          <span>Share as Image</span>
+        </button>
+        
+        <button class="share-option-btn" id="copyTextBtn">
+          <span class="icon">📝</span>
+          <span>Copy Verse</span>
+        </button>
+
+<div class="share-options">
+  <button class="share-option-btn" id="shareImageBtn">
+    <span class="icon">🎨</span>
+    <span>Share as Image</span>
+  </button>
+  
+  <button class="share-option-btn" id="copyTextBtn">
+    <span class="icon">📝</span>
+    <span>Copy Verse</span>
+  </button>
+
+  <!-- NEW: WhatsApp Share -->
+  <button class="share-option-btn" id="shareWhatsAppBtn">
+    <span class="icon">💚</span>
+    <span>Share to WhatsApp</span>
+  </button>
+
+  <button class="share-option-btn" id="shareTextBtn">
+    <span class="icon">🔗</span>
+    <span>Share App Link</span>
+  </button>
+  
+  <button class="share-option-btn" id="closeModalBtn">
+    <span class="icon">❌</span>
+    <span>Close</span>
+  </button>
+</div>
+        
+        <button class="share-option-btn" id="closeModalBtn">
+          <span class="icon">❌</span>
+          <span>Close</span>
+        </button>
+      </div>
+
+      <!-- Image Sharing Options -->
+      <div id="imageOptions" class="image-options hidden">
+        <h3>Choose Theme</h3>
+        <div class="theme-grid">
+          <div class="theme-option" data-theme="minimal">
+            <div class="theme-preview minimal-theme"></div>
+            <span>Minimal White</span>
+          </div>
+          <div class="theme-option" data-theme="dark">
+            <div class="theme-preview dark-theme"></div>
+            <span>Dark Mode</span>
+          </div>
+          <div class="theme-option" data-theme="sunrise">
+            <div class="theme-preview sunrise-theme"></div>
+            <span>Sunrise</span>
+          </div>
+          <div class="theme-option" data-theme="ocean">
+            <div class="theme-preview ocean-theme"></div>
+            <span>Ocean</span>
+          </div>
+          <div class="theme-option" data-theme="sunset">
+            <div class="theme-preview sunset-theme"></div>
+            <span>Sunset</span>
+          </div>
+          <div class="theme-option" data-theme="night">
+            <div class="theme-preview night-theme"></div>
+            <span>Night Sky</span>
+          </div>
+        </div>
+        
+        <div class="attribution-option">
+          <label>
+            <input type="checkbox" id="includeAttribution" checked>
+            Include attribution link
+          </label>
+        </div>
+        
+        <div class="action-buttons">
+          <button id="previewImageBtn" class="action-btn secondary">Preview</button>
+          <button id="downloadImageBtn" class="action-btn primary">Download Image</button>
+        </div>
+        
+        <!-- Image Preview -->
+        <div id="imagePreview" class="image-preview hidden">
+          <h3>Preview</h3>
+          <canvas id="verseCanvas" width="600" height="400"></canvas>
+          <button id="shareImageFinalBtn" class="action-btn primary">Share Image</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Script -->
-  <script src="script.js"></script>
+  <!-- Search Modal -->
+  <div id="searchModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Search Verses</h2>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by keyword, book, or topic..." />
+        <div id="searchResults" class="search-results"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=1.4"></script>
 </body>
 </html>
